@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASH LAP MART | Premier Laptop Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // blue-600
+                        secondary: '#1e40af', // blue-800
+                        accent: '#f59e0b', // amber-500
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+    
+    <!-- Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <i class="fas fa-laptop-code text-primary text-3xl"></i>
+                        <span class="font-bold text-2xl tracking-wider text-gray-900">ASH <span class="text-primary">LAP MART</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="index.html" class="text-primary font-medium border-b-2 border-primary pb-1">Home</a></li>
+                        <li><a href="products.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Laptops</a></li>
+                        <li><a href="about.html" class="text-gray-600 hover:text-primary transition-colors font-medium">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-600 hover:text-primary transition-colors font-medium">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Right Icons -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search laptops..." class="bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-primary w-64 text-sm">
+                        <i class="fas fa-search absolute left-4 top-2.5 text-gray-400"></i>
+                    </div>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors relative">
+                        <i class="fas fa-heart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="cart.html" class="text-gray-600 hover:text-primary transition-colors relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="#" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                        Login
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <a href="cart.html" class="text-gray-600 relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </a>
+                    <button class="text-gray-600 hover:text-primary focus:outline-none" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <ul class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
+                <li><a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-blue-50">Home</a></li>
+                <li><a href="products.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Laptops</a></li>
+                <li><a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Us</a></li>
+                <li><a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a></li>
+                <li class="mt-4 pt-4 border-t">
+                    <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary text-sm mb-4">
+                </li>
+                <li><a href="#" class="block w-full text-center bg-primary text-white px-4 py-2 rounded-lg font-medium">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Laptop Background" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="container mx-auto px-4 relative z-10 py-24 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Welcome to ASH LAP MART</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    Find Your Perfect <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">Dream Laptop</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg">
+                    Premium brand new and certified used laptops at unbeatable prices. Upgrade your tech today.
+                </p>
+                <div class="flex gap-4">
+                    <a href="products.html?condition=new" class="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg flex items-center gap-2">
+                        Brand New <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="products.html?condition=used" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg">
+                        Used Laptops
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MacBook Pro" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-lg object-cover h-80">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-12 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Island Wide Delivery</h3>
+                        <p class="text-sm text-gray-500">Fast & secure shipping</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">1 Year Warranty</h3>
+                        <p class="text-sm text-gray-500">On all brand new laptops</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Checking Warranty</h3>
+                        <p class="text-sm text-gray-500">14 days for used laptops</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">24/7 Support</h3>
+                        <p class="text-sm text-gray-500">Dedicated customer care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Shop by Category</h2>
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <a href="products.html?category=gaming" class="group relative rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gaming Laptops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-2xl font-bold text-white mb-1">Gaming Laptops</h3>
+                        <p class="text-gray-300 text-sm">High performance for gamers</p>
+                    </div>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="products.html?category=business" class="group relative rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Laptops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-2xl font-bold text-white mb-1">Business & Office</h3>
+                        <p class="text-gray-300 text-sm">Sleek, lightweight & powerful</p>
+                    </div>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="products.html?category=student" class="group relative rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Student Laptops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-2xl font-bold text-white mb-1">For Students</h3>
+                        <p class="text-gray-300 text-sm">Budget-friendly & reliable</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Trending Laptops</h2>
+                    <div class="w-24 h-1 bg-primary rounded-full"></div>
+                </div>
+                <a href="products.html" class="text-primary font-medium hover:text-secondary flex items-center gap-1">
+                    View All <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="featured-products">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group border border-gray-100 flex flex-col h-full">
+                    <div class="relative pt-4 px-4">
+                        <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">HOT</span>
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+                            <i class="far fa-heart text-xl"></i>
+                        </button>
+                        <a href="product-detail.html?id=1">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Apple MacBook Pro 14" class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-xs text-blue-600 font-semibold mb-1 uppercase tracking-wider">Brand New</div>
+                        <a href="product-detail.html?id=1" class="text-lg font-bold text-gray-900 mb-2 hover:text-primary transition-colors line-clamp-2">Apple MacBook Pro 14 M2 Pro (2023)</a>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-xs ml-1">(24 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <p class="text-gray-500 text-sm line-through">Rs. 695,000</p>
+                                    <p class="text-xl font-bold border-gray-900 text-gray-900">Rs. 650,000</p>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(1)" class="w-full bg-gray-900 hover:bg-primary text-white py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group border border-gray-100 flex flex-col h-full">
+                    <div class="relative pt-4 px-4">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">USED</span>
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+                            <i class="far fa-heart text-xl"></i>
+                        </button>
+                        <a href="product-detail.html?id=2">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dell XPS 13" class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Second Hand - Mint</div>
+                        <a href="product-detail.html?id=2" class="text-lg font-bold text-gray-900 mb-2 hover:text-primary transition-colors line-clamp-2">Dell XPS 13 9310 Core i7 11th Gen</a>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="far fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-xs ml-1">(12 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <p class="text-xl font-bold border-gray-900 text-gray-900">Rs. 185,000</p>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(2)" class="w-full bg-gray-900 hover:bg-primary text-white py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group border border-gray-100 flex flex-col h-full">
+                    <div class="relative pt-4 px-4">
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+                            <i class="far fa-heart text-xl"></i>
+                        </button>
+                        <a href="product-detail.html?id=3">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Asus ROG Strix" class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-xs text-blue-600 font-semibold mb-1 uppercase tracking-wider">Brand New</div>
+                        <a href="product-detail.html?id=3" class="text-lg font-bold text-gray-900 mb-2 hover:text-primary transition-colors line-clamp-2">Asus ROG Strix G15 Ryzen 9 RTX 3070</a>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-xs ml-1">(38 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <p class="text-xl font-bold border-gray-900 text-gray-900">Rs. 425,000</p>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(3)" class="w-full bg-gray-900 hover:bg-primary text-white py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group border border-gray-100 flex flex-col h-full">
+                    <div class="relative pt-4 px-4">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">-15% OFF</span>
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+                            <i class="far fa-heart text-xl"></i>
+                        </button>
+                        <a href="product-detail.html?id=4">
+                            <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lenovo Thinkpad" class="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Second Hand - Good</div>
+                        <a href="product-detail.html?id=4" class="text-lg font-bold text-gray-900 mb-2 hover:text-primary transition-colors line-clamp-2">Lenovo ThinkPad T480s Core i5 8th Gen</a>
+                        <div class="flex items-center gap-1 mb-3">
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            <i class="far fa-star text-yellow-400 text-sm"></i>
+                            <span class="text-gray-500 text-xs ml-1">(45 reviews)</span>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <p class="text-gray-500 text-sm line-through">Rs. 85,000</p>
+                                    <p class="text-xl font-bold border-gray-900 text-gray-900">Rs. 72,000</p>
+                                </div>
+                            </div>
+                            <button onclick="addToCart(4)" class="w-full bg-gray-900 hover:bg-primary text-white py-2.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="py-12 bg-gray-50 border-y">
+        <div class="container mx-auto px-4">
+            <h3 class="text-center text-gray-500 font-semibold mb-8 uppercase tracking-wider">Top Brands We Deal With</h3>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60">
+                <i class="fab fa-apple text-5xl hover:opacity-100 transition-opacity cursor-pointer"></i>
+                <i class="fas fa-laptop text-5xl hover:opacity-100 transition-opacity cursor-pointer delay-75"></i>
+                <i class="fab fa-windows text-5xl hover:opacity-100 transition-opacity cursor-pointer delay-100"></i>
+                <div class="text-3xl font-black italic hover:opacity-100 transition-opacity cursor-pointer delay-150">DELL</div>
+                <div class="text-3xl font-bold hover:opacity-100 transition-opacity cursor-pointer delay-200" style="font-family: Arial;">hp</div>
+                <div class="text-3xl font-black italic hover:opacity-100 transition-opacity cursor-pointer delay-300">ASUS</div>
+                <div class="text-3xl font-bold hover:opacity-100 transition-opacity cursor-pointer delay-300 tracking-tighter">acer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i class="fas fa-laptop-code text-primary text-3xl"></i>
+                        <span class="font-bold text-2xl tracking-wider">ASH <span class="text-primary">LAP MART</span></span>
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Lanka's premier destination for high-quality new and pre-owned laptops. We guarantee best prices and trusted after-sales services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Home</a></li>
+                        <li><a href="products.html?condition=new" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Brand New Laptops</a></li>
+                        <li><a href="products.html?condition=used" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Second Hand Laptops</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Order Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Warranty Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>Returns & Exchange</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors"><i class="fas fa-chevron-right text-xs mr-2"></i>FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary w-6"></i>
+                            <span class="text-gray-400">123, Galle Road, Colombo 03, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary w-6"></i>
+                            <span class="text-gray-400">+94 77 123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary w-6"></i>
+                            <span class="text-gray-400">info@ashlapmart.lk</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h5 class="font-semibold mb-3">Pay Securely With</h5>
+                        <div class="flex gap-2">
+                            <i class="fab fa-cc-visa text-3xl text-gray-400"></i>
+                            <i class="fab fa-cc-mastercard text-3xl text-gray-400"></i>
+                            <i class="fab fa-cc-paypal text-3xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2024 ASH LAP MART. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
